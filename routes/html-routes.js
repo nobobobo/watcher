@@ -7,22 +7,19 @@
 var express = require("express");
 
 var router = express.Router();
+const db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads view.html
-  app.get("/", function(req, res) {
-      hbsObject = {
-        username:"test",
-        bodyText:"EMERGENCY!!!!",
-        time: "2020-07-01 20:00",
-        location: "Seattle"
-      };
-    res.render("userinput", hbsObject);
+  app.get("/", (req, res) => {
+    db.Post.findAll({}).then(feed => {
+      res.render("userinput", feed);// need to figure out how to do order by 
+    });
   });
 
 };
