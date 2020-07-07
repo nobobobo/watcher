@@ -40,13 +40,3 @@ db.sequelize.sync({ force: true }).then(function() {
   });
 });
 
-
-// var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC5VP3pybEc9I2lF4vK1vcJpsYtraibm68&callback=initMap";
-// $(document).ready(function () {
-//     $.ajax({
-//         url: queryURL,
-//         method: "POST"
-//     }).then(function (response) {
-//         console.log(response);
-//     });
-// }); 
