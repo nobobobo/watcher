@@ -1,6 +1,50 @@
-
+<ul class="nav justify-content-end">
+     <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+    </li>
+    {{!-- <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a> --}}
+</ul>
 <div class="container">
-<p>{{username}}</p>
-<p>${{bodyText}}</p>
-<p>{{time, location}}</p>
+    <div class="row">
+        <div class="col-3">
+            {{!-- <div class="overflow-auto" style="max-height:400px; max-width: 250px;"> --}}
+            <div>
+                <ul>
+                    {{#each posts}}
+                    <li>
+                        <p>Username: {{this.userName}}</p>
+
+                        <p>Message: {{this.body}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="jumbotron"></div>
+            {{!-- Map will display here instead of jumbotron --}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 justify-content-end">
+            <form action="/" method="POST">
+                Name:<textarea type="text" name="userName"></textarea>
+                Message:<textarea type="text" name="body"> </textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+ {{!-- <form action="/" method="POST">
+                    <label for="fname">Username:</label><br>
+                    <input type="text" id="fname" name="fname" value="Name"><br>
+                    <input type="submit" value="Submit">
+                </form> --}}
