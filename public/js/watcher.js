@@ -10,9 +10,7 @@ $(document).ready(function () {
     function getWithLocation(position) {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
-        console.log(lat);
-        console.log(lng);
-
+        
         $.ajax({
             method: "GET",
             url: "/",

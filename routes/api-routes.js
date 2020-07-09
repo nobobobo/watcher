@@ -31,9 +31,7 @@ module.exports = function (app) {
         //     lng: -76.984722
         // }
 
-        db.Post.create(req.body
-
-        ).then(feed => res.json(feed));
+        db.Post.create(req.body).then(feed => res.json(feed));
     })
 
 }

@@ -38,9 +38,7 @@ module.exports = function (app) {
       }
       ).then(function(posts){
         data = [];
-        
         posts.forEach(element => data.push(element.dataValues));
-        console.log(data);
         res.render("userinput",{posts: data});
       });
     }
