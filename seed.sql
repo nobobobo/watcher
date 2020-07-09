@@ -1,0 +1,10 @@
+USE watcher;
+
+INSERT INTO Posts VALUES (1, "User1", "HELP!", 39.807222, -76.984722, "2020-07-07T02:44:32.603", "2020-07-07T02:44:32.603");
+INSERT INTO Posts VALUES (2, "User2", "Hi", 40.807222, -76.904722, "2020-07-07T02:44:32.603", "2020-07-07T02:44:32.603");
+INSERT INTO Posts VALUES (3, "User3", "Illegal fireworks", 38.807222, -75.984722, "2020-07-07T02:44:32.603", "2020-07-07T02:44:32.603");
+INSERT INTO Posts VALUES (4, "User4", "Test", 39.857222, -76.924722, "2020-07-07T02:44:32.603", "2020-07-07T02:44:32.603");
+
+
+-- Get recent (within a week) data order by the distance from POINT(0,0)
+--SELECT * FROM Posts WHERE DATEDIFF(CURDATE, createdAt) <= 7 ORDER BY POWER((lat-0),2) + POWER((lng-0),2) ASC;
