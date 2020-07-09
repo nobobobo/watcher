@@ -1,50 +1,74 @@
-<ul class="nav justify-content-end">
-     <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-    </li>
-    {{!-- <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
+<ul class="nav justify-content-center">
     <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <h1>WATCHER</h1>
     </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a> --}}
 </ul>
 <div class="container">
     <div class="row">
-        <div class="col-3">
-            {{!-- <div class="overflow-auto" style="max-height:400px; max-width: 250px;"> --}}
-            <div>
-                <ul>
-                    {{#each posts}}
-                    <li>
-                        <p>Username: {{this.userName}}</p>
-
-                        <p>Message: {{this.body}}</p>
-                    </li>
-                    {{/each}}
-                </ul>
+        <div class="col-md-4">
+            <div class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+                {{!-- Login link for modal --}}
             </div>
-        </div>
-        <div class="col-9">
-            <div class="jumbotron"></div>
-            {{!-- Map will display here instead of jumbotron --}}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-3 justify-content-end">
             <form action="/" method="POST">
-                Name:<textarea type="text" name="userName"></textarea>
-                Message:<textarea type="text" name="body"> </textarea>
+                <p>Username:</p>
+                <textarea type="text" name="body">Insert Message</textarea>
                 <button type="submit">Submit</button>
             </form>
+            <div>
+                <div class="overflow-auto justify-content-center" style="max-height:400px;">
+                    <ul>
+                        {{#each posts}}
+                        <li>
+                            <p>Username: {{this.userName}}</p>
+
+                            <p>Message: {{this.body}}</p>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <ul>
+                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Info card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk
+                                    of the card's content.</p>
+                            </div>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Info card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk
+                                    of the card's content.</p>
+                            </div>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Info card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk
+                                    of the card's content.</p>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-8">
+            {{!-- Map will display here --}}
+            <div id="map"></div>
+
         </div>
     </div>
 </div>
-
- {{!-- <form action="/" method="POST">
-                    <label for="fname">Username:</label><br>
-                    <input type="text" id="fname" name="fname" value="Name"><br>
-                    <input type="submit" value="Submit">
-                </form> --}}
