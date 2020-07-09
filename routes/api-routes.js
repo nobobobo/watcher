@@ -18,7 +18,7 @@ module.exports = function (app) {
                 [literal(`POWER((lat-${userlat}),2) + POWER((lng-${userlng}),2) ASC`)]
             ]
         }
-        ).then(feed => res.json(feed));
+        ).then(feeds => res.json(feeds));
     });
 
     app.post("/api/feeds", (req, res) => {

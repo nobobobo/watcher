@@ -17,9 +17,7 @@ module.exports = function (app) {
 
   // index route loads view.html
   app.get("/", (req, res) => {
-    db.Post.findAll({}).then(feed => {
-      res.render("userinput", feed);// need to figure out how to do order by 
-    });
+      res.render("userinput", []);// need to figure out how to do order by 
   });
 
 };
