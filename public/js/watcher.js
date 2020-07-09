@@ -1,5 +1,4 @@
-
-    function myFunction() {
+  function myFunction() {
         var x = document.getElementById("myModal");
         if (x.style.display === "none") {
             x.style.display = "block";
@@ -27,3 +26,29 @@
         }).then(function (response) {
         });
     });
+  
+
+$(document).ready(function () {
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(getWithLocation);
+        }
+    }
+
+
+    function getWithLocation(position) {
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+        
+        $.ajax({
+            method: "GET",
+            url: "/",
+            data: { lat: lat, lng: lng }
+        }).then(data => {
+            document.body.innerHTML = data;
+        });
+    }
+
+    getLocation();
+})

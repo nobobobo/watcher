@@ -8,6 +8,8 @@ var express = require("express");
 
 var router = express.Router();
 const db = require("../models");
+const { sequelize, literal, Op } = require('sequelize');
+const moment = require('moment');
 
 // Routes
 // =============================================================
@@ -17,7 +19,29 @@ module.exports = function (app) {
 
   // index route loads view.html
   app.get("/", (req, res) => {
-      res.render("userinput", []);// need to figure out how to do order by 
+    console.log(req);
+    if (req.query.lat === undefined) {
+      res.render("userinput", []);
+    } else {
+      const userlat = req.query.lat;
+      const userlng = req.query.lng;
+
+      db.Post.findAll({
+        where: [{
+          createdAt: {
+            [Op.gt]: moment().subtract(7, 'days').toDate()
+          }
+        }],
+        order: [
+          [literal(`POWER((lat-${userlat}),2) + POWER((lng-${userlng}),2) ASC`)]
+        ]
+      }
+      ).then(function(posts){
+        data = [];
+        posts.forEach(element => data.push(element.dataValues));
+        res.render("userinput",{posts: data});
+      });
+    }
   });
 
 };

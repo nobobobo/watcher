@@ -4,8 +4,8 @@ const moment = require('moment');
 
 module.exports = function (app) {
     app.get("/api/feeds", (req, res) => {
-        const userlat = req.body.lat;
-        const userlng = req.body.lng;
+        const userlat = req.query.lat;
+        const userlng = req.query.lng;
 
         // SELECT * FROM Posts WHERE DATEDIFF(CURDATE, createdAt) <= 7 ORDER BY POWER((lat-userLat),2) + POWER((lng-userlng),2) ASC;
         db.Post.findAll({
@@ -31,9 +31,7 @@ module.exports = function (app) {
         //     lng: -76.984722
         // }
 
-        db.Post.create(req.body
-
-        ).then(feed => res.json(feed));
+        db.Post.create(req.body).then(feed => res.json(feed));
     })
 
 }
