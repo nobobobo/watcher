@@ -2,14 +2,14 @@
     <li class="nav-item">
         <h1>WATCHER</h1>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-        {{!-- Login link for modal --}}
-    </li>
 </ul>
 <div class="container">
     <div class="row">
         <div class="col-md-4">
+            <div class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+                {{!-- Login link for modal --}}
+            </div>
             <form action="/" method="POST">
                 <p>Username:</p>
                 <textarea type="text" name="body">Insert Message</textarea>
@@ -62,21 +62,13 @@
                 </div>
 
             </div>
-            
+
         </div>
 
         <div class="col-md-8">
-            {{!-- Map will display here instead of jumbotron --}}
-            <div class="jumbotron"></div>
+            {{!-- Map will display here --}}
+            <div id="map"></div>
 
         </div>
     </div>
 </div>
-
-
-
-{{!-- <form action="/" method="POST">
-                    <label for="fname">Username:</label><br>
-                    <input type="text" id="fname" name="fname" value="Name"><br>
-                    <input type="submit" value="Submit">
-                </form> --}}

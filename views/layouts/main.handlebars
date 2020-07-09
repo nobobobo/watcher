@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Watcher</title>
-    <link rel="stylesheet" href="/assets/css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="/js/watcher.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -21,40 +22,11 @@
 
 <body>
 
-    <ul class="nav justify-content-end">
-        <li class="nav-item">
-            <a class="nav-link active" href="#" onclick="myFunction()">Login/Signup</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-    </ul>
-    <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="overflow-auto" style="max-height:400px; max-width: 250px;">
+   
                     {{{body}}}
-                </div>
-            </div>
-            <div class="col-9">
-                <div id="map">
-                </div>
-            </div>
-        </div>
-    </div>
-    <form action="/action_page.php">
-        <label for="fname">Username:</label><br>
-        <input type="text" id="fname" name="fname" value="John"><br>
-        <input type="submit" value="Submit">
-    </form>
+                
 
-    <div id="myModal" class="modal">
+    {{!-- <div id="myModal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content" style="display: block;">
@@ -65,39 +37,9 @@
             <input type="submit" value="Submit">
         </div>
 
-    </div>
+    </div> --}}
 
 </body>
-<script>
 
-    function myFunction() {
-        var x = document.getElementById("myModal");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    };
-
-    let map = tt.map({
-
-        container: 'map',
-        key: 'IZ0RMVec7S9rARyrNQXSbkwDQJQhNYUJ',
-        center: { lat: 47.608013, lng: -122.335167 },
-        zoom: 10,
-        style: 'tomtom://vector/1/basic-main',
-        language: "en-US"
-
-    });
-
-    var queryURL = "http://api.tomtom.com/map/1/tile/basic/main/0/0/0.png?key=YkNFDJfvOLhUnW5FxY4Dz44ZpE6UQR65";
-    $(document).ready(function () {
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-        });
-    });
-</script>
 
 </html>
