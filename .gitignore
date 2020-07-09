@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-node_modules
-./config/config.json
-=======
 \node_modules
 \config
 \models 
 \routes
->>>>>>> 1134069f78605081f4dc780f1209add068f79d2a
