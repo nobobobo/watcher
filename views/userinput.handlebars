@@ -1,71 +1,62 @@
-<ul class="nav justify-content-center">
+<ul class="nav">
+
     <li class="nav-item">
-        <h1>WATCHER</h1>
+        <button type="submit" class="btn btn-secondary" id="login-button">Login</button>
+        <img src="/images/watcher.jpg" alt="watcher.jpg" id="watcherlogo" class="form-inline mx-auto d-block">
     </li>
+
 </ul>
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <div class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-                {{!-- Login link for modal --}}
-            </div>
-            <form action="/" method="POST">
+        <div class="col-md-4 mx-auto d-block">
+            {{!-- Do we need a sign out button? --}}
+            {{!-- <button type="submit" class="btn btn-secondary">Sign Out</button> --}}
+            {{!-- Login link for modal --}}
+
+            <form action="/" method="POST" class="align-items-center">
                 <p>Username:</p>
-                <textarea type="text" name="body">Insert Message</textarea>
-                <button type="submit">Submit</button>
+                <textarea type="text" name="body"></textarea>
+                <button type="submit" class="btn btn-secondary">Submit</button>
             </form>
-            <div>
-                <div class="overflow-auto justify-content-center" style="max-height:400px;">
-                    <ul>
-                        {{#each posts}}
-                        <li>
-                            <p>Username: {{this.userName}}</p>
 
-                            <p>Message: {{this.body}}</p>
-                        </li>
-                        {{/each}}
-                    </ul>
-                    <ul>
-                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Header</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Info card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                            </div>
-                        </div>
-                    </ul>
-                    <ul>
-                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Header</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Info card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                            </div>
-                        </div>
-                    </ul>
-                    <ul>
-                        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Header</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Info card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
-                            </div>
-                        </div>
-                    </ul>
+            <div class="mx-auto d-block overflow-auto" style="max-height:400px;">
+                {{!-- card that handlebars will create each post with --}}
+                <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
+                    {{#each posts}}
+                    <div class="card-body">
+                        <h5 class="card-title">Username: {{this.userName}}</h5>
+                        <p class="card-text">Message: {{this.body}}</p>
+                    </div>
+                    {{/each}}
                 </div>
-
+                {{!-- fill in card post for testing --}}
+                <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
+                    <div class="card-body">
+                        <h5 class="card-title">Random Person</h5>
+                        <p class="card-text">Hey, I am posting a message about something I am watching in my
+                            neighborhoood</p>
+                    </div>
+                </div>
+                {{!-- fill in card post for testing --}}
+                <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
+                    <div class="card-body">
+                        <h5 class="card-title">Random Person</h5>
+                        <p class="card-text">Hey, I am posting a message about something I am watching in my
+                            neighborhoood</p>
+                    </div>
+                </div>
+                {{!-- fill in card post for testing --}}
+                <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
+                    <div class="card-body">
+                        <h5 class="card-title">Random Person</h5>
+                        <p class="card-text">Hey, I am posting a message about something I am watching in my
+                            neighborhoood</p>
+                    </div>
+                </div>
             </div>
-
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 mx-auto d-block">
             {{!-- Map will display here --}}
             <div id="map"></div>
 

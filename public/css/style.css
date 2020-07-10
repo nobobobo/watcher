@@ -11,8 +11,48 @@
 @media (min-width: 1025px) {
     .column {
         width: 25%; */
-
-
-h1 {
-    font-size: 200px;
+p {
+    color: white;
 }
+#watcherlogo {
+    max-width: 70%;
+}
+
+.nav {
+    background-color: black;
+}
+form {
+    margin-top: 10px;
+}
+
+#map {
+    margin: 10% 10% 10% 10%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.col-md-4 {
+    background-color: #333333;
+}
+
+.col-md-8 {
+    background-color: #333333;
+}
+.card {
+    background-color: darkslategrey;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background-color: #333333;
+}
+
+.btn {
+    font-family: 'Kanit', sans-serif;
+}
+
