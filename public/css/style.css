@@ -56,3 +56,15 @@ body {
     font-family: 'Kanit', sans-serif;
 }
 
+.mapboxgl-map{
+    overflow: visible ;
+}
+
+.mapboxgl-popup-content {color: white; background-color: #333333;font-size: small; opacity: 100;}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    -webkit-align-self: center;
+    align-self: center;
+    border-bottom: none;
+    border-top-color: #333333;
+} 

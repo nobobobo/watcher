@@ -1,31 +1,22 @@
 $(document).ready(function () {
-    function myFunction() {
-        var x = document.getElementById("myModal");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    };
 
     let map = tt.map({
 
         container: 'map',
         key: 'IZ0RMVec7S9rARyrNQXSbkwDQJQhNYUJ',
         center: { lat: 47.608013, lng: -122.335167 },
-        zoom: 10,
+        zoom: 9,
         style: 'tomtom://vector/1/basic-main',
         language: "en-US"
 
     });
 
-    var tomtomURL = "http://api.tomtom.com/map/1/tile/basic/main/0/0/0.png?key=YkNFDJfvOLhUnW5FxY4Dz44ZpE6UQR65";
-    $.ajax({
-        url: tomtomURL,
-        method: "GET"
-    }).then(function (response) {
-    });
-
+    function renderMakers(data) {
+        console.log(data);
+        data.forEach(feed => {
+            let marker = new tt.Marker().setLngLat([feed.lng, feed.lat]).setPopup(new tt.Popup({ offset: 35 }).setHTML(feed.userName + ": "+ feed.body)).addTo(map);
+        });
+    }
 
     function getWithLocation(position) {
         let lat = position.coords.latitude;
@@ -40,6 +31,12 @@ $(document).ready(function () {
             el.innerHTML = data;
             document.body.querySelector('#feeds').innerHTML = el.querySelector('#feeds').innerHTML;
         });
+
+        $.get(
+            "/api/feeds",
+            { lat: lat, lng: lng },
+            data => renderMakers(data)
+        );
     }
 
     function getLocation() {
@@ -50,27 +47,27 @@ $(document).ready(function () {
 
     getLocation();
 
-    function postLocation(){
+    function postLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(postWithLocation);
         }
     }
 
-    function postWithLocation(position){
+    function postWithLocation(position) {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
 
         $.post("/api/feeds",
-        {
-            userName: $("#userName").val().trim(),
-            body: $('#body').val().trim(),
-            lat: lat,
-            lng: lng
-        },
-        res => getLocation());
+            {
+                userName: $("#userName").val().trim(),
+                body: $('#body').val().trim(),
+                lat: lat,
+                lng: lng
+            },
+            res => getLocation());
     }
 
-    $("#input_form").submit(function(event){
+    $("#input_form").submit(function (event) {
         event.preventDefault();
         postLocation();
     })
