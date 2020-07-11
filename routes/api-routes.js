@@ -23,6 +23,7 @@ module.exports = function (app) {
     });
 
     app.post("/api/feeds", (req, res) => {
+        console.log(req.body);
 
         // req.body format: 
         // {
@@ -32,7 +33,10 @@ module.exports = function (app) {
         //     lng: -76.984722
         // }
 
-        db.Post.create(req.body).then(feed => res.json(feed));
+        db.Post.create(req.body).then(feed => {
+            console.log(feed);
+            res.json(feed);
+        });
     })
 
 }

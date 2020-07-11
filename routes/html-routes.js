@@ -39,6 +39,10 @@ module.exports = function (app) {
       ).then(function (posts) {
         data = [];
         posts.forEach(element => data.push(element.dataValues));
+        data.forEach(feed =>{
+            let time = moment(feed.createdAt).calendar(); 
+            feed.time = time;
+        });
         res.render("userinput", { posts: data });
       });
     }
