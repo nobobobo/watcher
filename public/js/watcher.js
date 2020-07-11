@@ -68,7 +68,8 @@ $(document).ready(function () {
     }
 
     $("#input_form").submit(function (event) {
-        event.preventDefault();
+        event.preventDefault()
+        if ($("#userName").val() === "" && $("#userName").val() === "") return;
         postLocation();
     })
 })

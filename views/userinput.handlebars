@@ -24,7 +24,8 @@
                 {{#each posts}}
                 <div class="card text-white bg-secondary mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">Username: {{this.userName}}</h5>
+                        <h5 class="card-title">{{this.userName}}</h5>
+                        <p class="card-text"> {{this.time}}</p>
                         <p class="card-text">Message: {{this.body}}</p>
                     </div>
                 </div>
