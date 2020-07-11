@@ -73,6 +73,11 @@ body {
     overflow: visible ;
 }
 
+#time-stamp {
+    font-size: 8pt;
+    margin: 0 0 10px 5px;
+}
+
 #feeds::-webkit-scrollbar {
     width: 1em;
   }

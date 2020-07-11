@@ -15,7 +15,8 @@
 
             <form id="input_form" class="form-group align-items-center">
                 <textarea class="form-control-sm" type="text" id="userName" placeholder="Type Username here"></textarea>
-                <textarea class="form-control" type="text" id="body" placeholder="Type message here" id="message-form"></textarea>
+                <textarea class="form-control" type="text" id="body" placeholder="Type message here"
+                    id="message-form"></textarea>
                 <button type="submit" class="btn btn-secondary">Submit</button>
             </form>
 
@@ -24,9 +25,11 @@
                 {{#each posts}}
                 <div class="card text-white bg-secondary mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">{{this.userName}}</h5>
-                        <p class="card-text"> {{this.time}}</p>
-                        <p class="card-text">Message: {{this.body}}</p>
+                        <div class="form-inline">
+                            <h5 class="card-title">{{this.userName}}</h5>
+                            <p class="card-text" id="time-stamp"> {{this.time}}</p>
+                        </div>
+                        <p class="card-text"> {{this.body}}</p>
                     </div>
                 </div>
                 {{/each}}
