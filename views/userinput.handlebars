@@ -13,22 +13,23 @@
             {{!-- <button type="submit" class="btn btn-secondary">Sign Out</button> --}}
             {{!-- Login link for modal --}}
 
-            <form action="/" method="POST" class="align-items-center">
-                <p>Username:</p>
-                <textarea type="text" name="body"></textarea>
+            <form id="input_form" class="align-items-center">
+                <p>Username:</p> <textarea type="text" id="userName"></textarea>
+                <textarea type="text" id="body"></textarea>
                 <button type="submit" class="btn btn-secondary">Submit</button>
             </form>
 
-            <div class="mx-auto d-block overflow-auto" style="max-height:400px;">
+            <div id="feeds" class="mx-auto d-block overflow-auto" style="max-height:400px;">
                 {{!-- card that handlebars will create each post with --}}
+                {{#each posts}}
                 <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
-                    {{#each posts}}
                     <div class="card-body">
                         <h5 class="card-title">Username: {{this.userName}}</h5>
                         <p class="card-text">Message: {{this.body}}</p>
                     </div>
-                    {{/each}}
                 </div>
+                {{/each}}
+
                 {{!-- fill in card post for testing --}}
                 <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
                     <div class="card-body">
@@ -59,7 +60,6 @@
         <div class="col-md-8 mx-auto d-block">
             {{!-- Map will display here --}}
             <div id="map"></div>
-
         </div>
     </div>
 </div>
