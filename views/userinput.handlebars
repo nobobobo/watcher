@@ -1,7 +1,7 @@
 <ul class="nav">
 
     <li class="nav-item">
-        <button type="submit" class="btn btn-secondary" id="login-button">Login</button>
+        {{!-- <button type="submit" class="btn btn-secondary" id="login-button">Login</button> --}}
         <img src="/images/watcher.jpg" alt="watcher.jpg" id="watcherlogo" class="form-inline mx-auto d-block">
     </li>
 
@@ -13,47 +13,22 @@
             {{!-- <button type="submit" class="btn btn-secondary">Sign Out</button> --}}
             {{!-- Login link for modal --}}
 
-            <form id="input_form" class="align-items-center">
-                <p>Username:</p> <textarea type="text" id="userName"></textarea>
-                <textarea type="text" id="body"></textarea>
+            <form id="input_form" class="form-group align-items-center">
+                <textarea class="form-control-sm" type="text" id="userName" placeholder="Type Username here"></textarea>
+                <textarea class="form-control" type="text" id="body" placeholder="Type message here" id="message-form"></textarea>
                 <button type="submit" class="btn btn-secondary">Submit</button>
             </form>
 
-            <div id="feeds" class="mx-auto d-block overflow-auto" style="max-height:400px;">
+            <div id="feeds" class="mx-auto d-block overflow-auto">
                 {{!-- card that handlebars will create each post with --}}
                 {{#each posts}}
-                <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
+                <div class="card text-white bg-secondary mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Username: {{this.userName}}</h5>
                         <p class="card-text">Message: {{this.body}}</p>
                     </div>
                 </div>
                 {{/each}}
-
-                {{!-- fill in card post for testing --}}
-                <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
-                    <div class="card-body">
-                        <h5 class="card-title">Random Person</h5>
-                        <p class="card-text">Hey, I am posting a message about something I am watching in my
-                            neighborhoood</p>
-                    </div>
-                </div>
-                {{!-- fill in card post for testing --}}
-                <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
-                    <div class="card-body">
-                        <h5 class="card-title">Random Person</h5>
-                        <p class="card-text">Hey, I am posting a message about something I am watching in my
-                            neighborhoood</p>
-                    </div>
-                </div>
-                {{!-- fill in card post for testing --}}
-                <div class="card text-white bg-secondary mb-3" style="max-width: 90%;">
-                    <div class="card-body">
-                        <h5 class="card-title">Random Person</h5>
-                        <p class="card-text">Hey, I am posting a message about something I am watching in my
-                            neighborhoood</p>
-                    </div>
-                </div>
             </div>
         </div>
 
