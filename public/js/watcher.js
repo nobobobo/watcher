@@ -49,4 +49,29 @@ $(document).ready(function () {
     }
 
     getLocation();
+
+    function postLocation(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(postWithLocation);
+        }
+    }
+
+    function postWithLocation(position){
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+
+        $.post("/api/feeds",
+        {
+            userName: $("#userName").val().trim(),
+            body: $('#body').val().trim(),
+            lat: lat,
+            lng: lng
+        },
+        res => getLocation());
+    }
+
+    $("#input_form").submit(function(event){
+        event.preventDefault();
+        postLocation();
+    })
 })

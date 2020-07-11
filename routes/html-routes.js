@@ -19,7 +19,6 @@ module.exports = function (app) {
 
   // index route loads view.html
   app.get("/", (req, res) => {
-    console.log(req);
     if (req.query.lat === undefined) {
       res.render("userinput", []);
     } else {
@@ -33,13 +32,14 @@ module.exports = function (app) {
           }
         }],
         order: [
-          [literal(`POWER((lat-${userlat}),2) + POWER((lng-${userlng}),2) ASC`)]
+          [literal(`POWER((lat-${userlat}),2) + POWER((lng-${userlng}),2) ASC`)],
+          ['updatedAt', 'DESC']
         ]
       }
-      ).then(function(posts){
+      ).then(function (posts) {
         data = [];
         posts.forEach(element => data.push(element.dataValues));
-        res.render("userinput",{posts: data});
+        res.render("userinput", { posts: data });
       });
     }
   });

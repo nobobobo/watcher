@@ -15,7 +15,8 @@ module.exports = function (app) {
                 }
             }],
             order: [
-                [literal(`POWER((lat-${userlat}),2) + POWER((lng-${userlng}),2) ASC`)]
+                [literal(`POWER((lat-${userlat}),2) + POWER((lng-${userlng}),2) ASC`)],
+                ['updatedAt', 'DESC']
             ]
         }
         ).then(feeds => res.json(feeds));
